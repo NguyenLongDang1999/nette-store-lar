@@ -27,7 +27,7 @@
         </li>
 
         <li class="menu-item">
-            <a href="app-calendar.html" class="menu-link">
+            <a href="{{ route('admin.category.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-category-alt"></i>
                 <span class="text-capitalize">Quản lý danh mục</span>
             </a>

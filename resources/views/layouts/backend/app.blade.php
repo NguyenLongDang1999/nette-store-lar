@@ -26,7 +26,7 @@
         <div class="layout-wrapper layout-content-navbar">
             <div class="layout-container">
                 <!-- Menu -->
-                @include('layouts.backend.menu')
+                @livewire('layouts.backend.menu')
                 <!-- / Menu -->
 
                 <!-- Layout container -->
@@ -59,7 +59,7 @@
                             </div>
                             <!-- / Breadcrumbs -->
 
-                            @yield('content')
+                            {{ $slot }}
                         </div>
                         <!-- / Content -->
                     </div>

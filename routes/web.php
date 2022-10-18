@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,23 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('cms-admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Category
+    Route::prefix('category')->controller(CategoryController::class)->name('category.')->group(function () {
+        // List
+        Route::get('/', 'index')->name('index');
+        Route::get('getList', 'getList')->name('getList');
+
+        // Create
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+
+        // Update
+        Route::get('edit', 'edit')->name('edit');
+        Route::post('update', 'update')->name('update');
+
+        // Recycle
+        Route::get('recycle', 'recycle')->name('recycle');
+        Route::get('getListRecycle', 'getListRecycle')->name('getListRecycle');
+    });
 });
