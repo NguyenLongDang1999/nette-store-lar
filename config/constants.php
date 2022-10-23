@@ -8,4 +8,8 @@ return [
     // Popular
     'POPULAR_ACTIVE' => 1,
     'POPULAR_INACTIVE' => 0,
+
+    // Message
+    'MESSAGE_SUCCESS' => 'success',
+    'MESSAGE_ERROR' => 'error'
 ];

@@ -18,7 +18,6 @@
         <title>@yield('title') - CMS Store</title>
 
         @include('layouts.backend.linkCSS')
-        @livewireStyles
     </head>
 
     <body>
@@ -76,7 +75,6 @@
         </div>
         <!-- / Layout wrapper -->
 
-        @livewireScripts
         @include('layouts.backend.linkJS')
     </body>
 </html>

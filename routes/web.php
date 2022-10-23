@@ -31,8 +31,8 @@ Route::prefix('cms-admin')->name('admin.')->group(function () {
         Route::post('store', 'store')->name('store');
 
         // Update
-        Route::get('edit', 'edit')->name('edit');
-        Route::post('update', 'update')->name('update');
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
 
         // Recycle
         Route::get('recycle', 'recycle')->name('recycle');

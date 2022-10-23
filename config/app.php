@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Spatie\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -211,7 +212,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'Aire' => \Galahad\Aire\Support\Facades\Aire::class
     ])->toArray(),
 
 ];

@@ -6,12 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "glhd/aire": "^2.6",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "^2.10"
+        "spatie/laravel-html": "^3.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
