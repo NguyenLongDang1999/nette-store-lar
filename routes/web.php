@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth
+Route::prefix('auth')->controller(AuthenticatedSessionController::class)->group(function () {
+    Route::prefix('login')->middleware('guest')->group(function () {
+        Route::get('/', 'create')->name('login');
+        Route::post('/', 'store');
+    });
+
+    Route::prefix('logout')->middleware('auth')->group(function () {
+        Route::post('/', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    });
+});
+
 // Backend
-Route::prefix('cms-admin')->name('admin.')->group(function () {
+Route::prefix('cms-admin')->middleware(['auth', 'verified'])->name('admin.')->group(function () {
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -38,3 +51,9 @@ Route::prefix('cms-admin')->name('admin.')->group(function () {
         Route::post('delete/{id}', 'delete')->name('delete');
     });
 });
+
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+//
+//require __DIR__.'/auth.php';

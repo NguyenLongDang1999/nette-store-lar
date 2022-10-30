@@ -88,10 +88,14 @@
                             <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="auth-login-cover.html" target="_blank">
+                            {{ html()->form('POST', route('logout'))->open() }}
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault(); this.closest('form').submit();"
+                            >
                                 <i class="bx bx-power-off me-2"></i>
-                                <span class="align-middle">Log Out</span>
+                                <span class="align-middle">Đăng Xuất</span>
                             </a>
+                            {{ html()->form()->close() }}
                         </li>
                     </ul>
                 </li>
