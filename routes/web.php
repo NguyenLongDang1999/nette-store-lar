@@ -34,8 +34,7 @@ Route::prefix('cms-admin')->name('admin.')->group(function () {
         Route::get('edit/{id}', 'edit')->name('edit');
         Route::post('update/{id}', 'update')->name('update');
 
-        // Recycle
-        Route::get('recycle', 'recycle')->name('recycle');
-        Route::get('getListRecycle', 'getListRecycle')->name('getListRecycle');
+        // Delete
+        Route::post('delete/{id}', 'delete')->name('delete');
     });
 });

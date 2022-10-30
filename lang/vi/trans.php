@@ -15,6 +15,10 @@ return [
     'slug' => 'Đường dẫn URL',
     'description' => 'Mô tả',
     'info' => 'Thông tin chung',
+    'confirm' => [
+        'delete' => 'Bạn có chắc chắn muốn xóa dữ liệu này?',
+        'update' => 'Bạn có chắc chắn muốn cập nhật dữ liệu này?',
+    ],
     'create' => [
         'basic' => 'Thông tin cơ bản',
         'image' => 'Hình đại diện',
@@ -26,6 +30,7 @@ return [
         'meta_description' => 'Meta Description',
     ],
     'action' => [
+        'save' => 'Lưu lại',
         'create' => 'Thêm mới',
         'search' => 'Tìm kiếm',
         'reset' => 'Làm mới',
@@ -34,7 +39,8 @@ return [
         'back' => 'Quay lại',
         'recycle' => 'Thùng rác',
         'restore' => 'Khôi phục',
-        'cancel' => 'Hủy bỏ'
+        'cancel' => 'Hủy bỏ',
+        'confirm' => 'Xác nhận'
     ],
     'category' => [
         'option_default' => '[-- Chọn danh mục --]',
@@ -45,15 +51,20 @@ return [
     ],
     'validation' => [
         'required' => ':attribute không được bỏ trống.',
+        'unique' => ':attribute đã tồn tại trong hệ thống.',
         'max' => [
             'string' => ':attribute không được vượt quá :max ký tự.',
         ],
         'min' => [
             'string' => ':attribute không được dưới :min ký tự.',
         ],
+        'mimes' => ':attribute phải là định dạng: :values.',
+        'image' => ':attribute phải là một hình ảnh.',
     ],
     'message' => [
         'success' => 'Dữ liệu đã được lưu thành công!',
         'error' => 'Có lỗi xảy ra trong quá trình thao tác. Vui lòng kiểm tra lại!'
-    ]
+    ],
+    'success' => 'Thành Công',
+    'error' => 'Thất Bại'
 ];

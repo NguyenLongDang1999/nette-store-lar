@@ -1,13 +1,21 @@
 $(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    })
+
     // Variables
-    let uploadedImage = $('#uploaded-image')
+    let uploadedImage = $('#uploaded-image'),
+        toastPlacement,
+        dataID, action
 
     const bootstrapSelect = $('.bootstrap-select'),
-        imageUploader = $('.image-uploader'),
         imageFileInput = $('.image-file-input'),
         imageFileReset = $('.image-file-reset'),
-        name = $('#name'),
-        slug = $('#slug')
+        toastPlacementExample = $('.toast-placement-ex'),
+        actionDialog = $('#action-dialog'),
+        btnAction = $('#btn-action')
 
     // Plugins
     if (bootstrapSelect.length) {
@@ -32,25 +40,39 @@ $(function () {
         })
     }
 
-    name ? name.on('input', () => convertToSlug()) : ''
+    actionDialog.on('show.bs.modal', function (event) {
+        dataID = $(event.relatedTarget).data('id')
+        action = $(event.relatedTarget).data('action')
+    })
+
+    $(btnAction).on('click', function (e) {
+        e.preventDefault()
+        actionDataWithDialog(dataID, action)
+    })
 
     // Functions
-    function convertToSlug() {
-        let str = name.val()
-        str = str.toLowerCase()
+    function actionDataWithDialog(dataID, action) {
+        $.ajax({
+            type: "post",
+            url: action,
+            data: {data: dataID}
+        }).done(function (resp) {
+            const toastResult = $('#toast-result'),
+                toastType = $('#toast-type')
 
-        str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a')
-        str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e')
-        str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i')
-        str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o')
-        str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u')
-        str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y')
-        str = str.replace(/(đ)/g, 'd')
-        str = str.replace(/([^0-9a-z-\s])/g, '')
-        str = str.replace(/(\s+)/g, '-')
-        str = str.replace(/^-+/g, '')
-        str = str.replace(/-+$/g, '')
+            if (resp.result) {
+                toastType[0].classList.remove('bg-danger')
+                toastType[0].classList.add('bg-primary')
+            } else {
+                toastType[0].classList.remove('bg-primary')
+                toastType[0].classList.add('bg-danger')
+            }
 
-        return slug.val(str)
+            oTable.draw()
+            actionDialog.modal('hide')
+            toastResult[0].textContent = resp.message
+            toastPlacement = new bootstrap.Toast(toastPlacementExample);
+            toastPlacement.show();
+        })
     }
 })

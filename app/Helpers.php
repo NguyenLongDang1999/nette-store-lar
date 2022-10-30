@@ -18,3 +18,29 @@ function optionPopular(): array
     ];
 }
 
+function imageManipulation($path, $slug, $imageURL, $size): string
+{
+    $ext = 'webp';
+    $fileName = $slug . '.' . $ext;
+    $destinationPath = public_path($path) . $fileName;
+    $imageResize = Image::make($imageURL->getRealPath())->encode($ext, '90')->resize($size['width'], $size['height'])->save($destinationPath);
+    return $fileName;
+}
+
+function removeImageFromStorage($path, $fileName): void
+{
+    $destinationPath = public_path($path) . $fileName;
+    if (file_exists($destinationPath) && !is_null($fileName)) {
+        unlink($destinationPath);
+    }
+}
+
+/**
+ * @param $path
+ * @param $url
+ * @return string
+ */
+function showImage($path, $url): string
+{
+    return asset($url ? $path . $url : config('constants.PATH_DEFAULT'));
+}
