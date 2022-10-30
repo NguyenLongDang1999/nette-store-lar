@@ -1,13 +1,11 @@
-@if($type === config('constants.TEXT'))
-    {{ html()->label($label, $name)->class('form-label') }}
+{{ html()->label($label, $name)->class('form-label') }}
 
-    @isset($value)
-        {{ html()->text($name)->class('form-control')->addClass($errors->has($name) ? 'is-invalid' : '')->value($value) }}
-    @else
-        {{ html()->text($name)->class('form-control')->addClass($errors->has($name) ? 'is-invalid' : '') }}
-    @endisset
+@isset($value)
+    {{ html()->text($name)->class('form-control')->addClass($errors->has($name) ? 'is-invalid' : '')->value($value) }}
+@else
+    {{ html()->text($name)->class('form-control')->addClass($errors->has($name) ? 'is-invalid' : '') }}
+@endisset
 
-    @if($errors->has($name))
-        <div class="invalid-feedback d-block">{{ $errors->first($name) }}</div>
-    @endif
+@if($errors->has($name))
+    <div class="invalid-feedback d-block">{{ $errors->first($name) }}</div>
 @endif

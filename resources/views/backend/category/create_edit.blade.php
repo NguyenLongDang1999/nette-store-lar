@@ -41,7 +41,6 @@
 
                     <div class="col-md-12">
                         @includeIf('components.forms._text', [
-                            'type' => config('constants.TEXT'),
                             'label' => __('trans.category.title'),
                             'name' => 'name',
                             'value' => $row->name ?? NULL
@@ -50,7 +49,6 @@
 
                     <div class="col-md-6">
                         @includeIf('components.forms._select', [
-                            'type' => config('constants.SELECT'),
                             'arrList' => $getCategoryList ?? [],
                             'label' => __('trans.category.parent_id'),
                             'name' => 'parent_id',
@@ -60,7 +58,6 @@
 
                     <div class="col-md-6">
                         @includeIf('components.forms._text', [
-                            'type' => config('constants.TEXT'),
                             'label' => __('trans.description'),
                             'name' => 'description',
                             'value' => $row->description ?? NULL
@@ -69,7 +66,6 @@
 
                     <div class="col-md-6">
                         @includeIf('components.forms._select', [
-                            'type' => config('constants.SELECT'),
                             'arrList' => optionStatus() ?? [],
                             'label' => __('trans.status'),
                             'name' => 'status',
@@ -79,7 +75,6 @@
 
                     <div class="col-md-6">
                         @includeIf('components.forms._select', [
-                            'type' => config('constants.SELECT'),
                             'arrList' => optionPopular() ?? [],
                             'label' => __('trans.popular'),
                             'name' => 'popular',
@@ -90,7 +85,6 @@
                     <div class="col-12">
                         <hr>
                         @includeIf('components.forms._upload_once', [
-                            'type' => config('constants.UPLOAD_ONCE'),
                             'path' => config('constants.PATH_CATEGORY'),
                             'name' => 'image_uri',
                             'value' => $row->image_uri ?? NULL
@@ -100,7 +94,6 @@
 
                     <div class="col-12">
                         @includeIf('components.forms._textarea', [
-                            'type' => config('constants.TEXT_AREA'),
                             'label' => __('trans.seo.meta_title'),
                             'name' => 'meta_title',
                             'value' => $row->meta_title ?? NULL
@@ -109,7 +102,6 @@
 
                     <div class="col-12">
                         @includeIf('components.forms._textarea', [
-                            'type' => config('constants.TEXT_AREA'),
                             'label' => __('trans.seo.meta_keyword'),
                             'name' => 'meta_keyword',
                             'value' => $row->meta_keyword ?? NULL
@@ -118,7 +110,6 @@
 
                     <div class="col-12">
                         @includeIf('components.forms._textarea', [
-                            'type' => config('constants.TEXT_AREA'),
                             'label' => __('trans.seo.meta_description'),
                             'name' => 'meta_description',
                             'value' => $row->meta_description ?? NULL

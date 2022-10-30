@@ -65,6 +65,14 @@ return [
         'success' => 'Dữ liệu đã được lưu thành công!',
         'error' => 'Có lỗi xảy ra trong quá trình thao tác. Vui lòng kiểm tra lại!'
     ],
+    'auth' => [
+        'email' => 'E-mail',
+        'login' => 'Đăng nhập',
+        'logout' => 'Đăng xuất',
+        'remember' => 'Nhớ Mật Khẩu',
+        'password' => 'Mật khẩu',
+        'confirm_password' => 'Xác nhận mật khẩu'
+    ],
     'success' => 'Thành Công',
     'error' => 'Thất Bại'
 ];
