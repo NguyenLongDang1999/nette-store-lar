@@ -44,3 +44,29 @@ function showImage($path, $url): string
 {
     return asset($url ? $path . $url : config('constants.PATH_DEFAULT'));
 }
+
+function adminMenuList(): array
+{
+    return [
+        'manage-dashboard' => [
+            'title' => 'Thống kê',
+            'content' => [
+                [
+                    'title' => 'Trang thống kê',
+                    'icon' => 'bx bx-home-circle',
+                    'href' => route('admin.dashboard')
+                ]
+            ]
+        ],
+        'manage-product' => [
+            'title' => 'Sản phẩm',
+            'content' => [
+                [
+                    'title' => 'Quản lý danh mục',
+                    'icon' => 'bx bx-category',
+                    'href' => route('admin.category.index')
+                ]
+            ]
+        ]
+    ];
+}

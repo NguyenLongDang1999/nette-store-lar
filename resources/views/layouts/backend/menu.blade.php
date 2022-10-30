@@ -7,30 +7,24 @@
     </div>
 
     <div class="menu-divider mt-0"></div>
-
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Thống kê</span>
-        </li>
+        @foreach(adminMenuList() as $parent)
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">{{ $parent['title'] ?? '' }}</span>
+            </li>
 
-        <li class="menu-item">
-            <a href="{{ route('admin.dashboard') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home"></i>
-                <span class="text-capitalize">Thống kê</span>
-            </a>
-        </li>
-
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Sản phẩm</span>
-        </li>
-
-        <li class="menu-item">
-            <a href="{{ route('admin.category.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-category-alt"></i>
-                <span class="text-capitalize">Quản lý danh mục</span>
-            </a>
-        </li>
+            @if(count($parent['content']))
+                @foreach($parent['content'] as $child)
+                    <li class="menu-item">
+                        <a href="{{ $child['href'] ?? '' }}" class="menu-link">
+                            <i class="menu-icon tf-icons {{ $child['icon'] ?? '' }}"></i>
+                            <span class="text-capitalize">{{ $child['title'] ?? '' }}</span>
+                        </a>
+                    </li>
+                @endforeach
+            @endif
+        @endforeach
     </ul>
 </aside>
