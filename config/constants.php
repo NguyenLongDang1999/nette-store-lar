@@ -14,7 +14,7 @@ return [
     'MESSAGE_ERROR' => 'error',
 
     // Path Image
-    'PATH_CATEGORY' => 'uploads/category/',
-    'PATH_BRAND' => 'uploads/brand/',
+    'PATH_CATEGORY' => 'storage/category/',
+    'PATH_BRAND' => 'storage/brand/',
     'PATH_DEFAULT' => 'assets/images/default.webp'
 ];
