@@ -49,6 +49,11 @@ return [
         'title' => 'Tiêu đề danh mục',
         'manager' => 'Quản lý sản phẩm',
     ],
+    'brand' => [
+        'name' => 'Thương hiệu',
+        'title' => 'Tiêu đề thương hiệu',
+        'manager' => 'Quản lý thương hiệu',
+    ],
     'validation' => [
         'required' => ':attribute không được bỏ trống.',
         'unique' => ':attribute đã tồn tại trong hệ thống.',

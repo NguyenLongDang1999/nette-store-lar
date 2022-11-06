@@ -33,7 +33,7 @@
         </div>
 
         <div class="col-12">
-            @include('components._messages')
+            <x-_messages/>
         </div>
 
         <div class="col-12">

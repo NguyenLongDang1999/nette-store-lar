@@ -1,40 +1,36 @@
 {{ html()->form()->action(route('admin.category.getList'))->class('row g-3')->id('frmSearch')->attribute('onsubmit', 'return false')->open() }}
 <div class="col-md-6">
-    @includeIf('components.forms._text', [
-        'type' => config('constants.TEXT'),
-        'label' => __('trans.category.title'),
-        'name' => 'search[name]'
-    ])
+    <x-forms._text
+        name="search[name]"
+        :label="__('trans.category.title')"
+    />
 </div>
 
 <div class="col-md-6">
-    @includeIf('components.forms._select', [
-        'type' => config('constants.SELECT'),
-        'arrList' => $getCategoryList ?? [],
-        'label' => __('trans.category.parent_id'),
-        'name' => 'search[parent_id]',
-        'value' => NULL
-    ])
+    <x-forms._select
+        name="search[parent_id]"
+        :arr-list="$getCategoryList ?? []"
+        :label="__('trans.category.parent_id')"
+        :value="NULL"
+    />
 </div>
 
 <div class="col-md-6">
-    @includeIf('components.forms._select', [
-        'type' => config('constants.SELECT'),
-        'arrList' => optionStatus() ?? [],
-        'label' => __('trans.status'),
-        'name' => 'search[status]',
-        'value' => NULL
-    ])
+    <x-forms._select
+        name="search[status]"
+        :arr-list="optionStatus() ?? []"
+        :label="__('trans.status')"
+        :value="NULL"
+    />
 </div>
 
 <div class="col-md-6">
-    @includeIf('components.forms._select', [
-        'type' => config('constants.SELECT'),
-        'arrList' => optionPopular() ?? [],
-        'label' => __('trans.popular'),
-        'name' => 'search[popular]',
-        'value' => NULL
-    ])
+    <x-forms._select
+        name="search[popular]"
+        :arr-list="optionPopular() ?? []"
+        :label="__('trans.popular')"
+        :value="NULL"
+    />
 </div>
 
 <div class="col-12 text-center">

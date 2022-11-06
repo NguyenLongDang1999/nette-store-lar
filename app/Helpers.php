@@ -20,10 +20,16 @@ function optionPopular(): array
 
 function imageManipulation($path, $slug, $imageURL, $size): string
 {
-    $ext = 'webp';
+    $publicPath = public_path($path);
+    if (!file_exists($publicPath)) {
+        mkdir($publicPath, 0755, true);
+    }
+
+    $ext = 'jpg';
     $fileName = $slug . '.' . $ext;
-    $destinationPath = public_path($path) . $fileName;
-    $imageResize = Image::make($imageURL->getRealPath())->encode($ext, '90')->resize($size['width'], $size['height'])->save($destinationPath);
+    $destinationPath = $publicPath . $fileName;
+    Image::make($imageURL->getRealPath())->encode($ext, '90')->resize($size['width'], $size['height'])->save($destinationPath);
+
     return $fileName;
 }
 
@@ -65,6 +71,11 @@ function adminMenuList(): array
                     'title' => 'Quản lý danh mục',
                     'icon' => 'bx bx-category',
                     'href' => route('admin.category.index')
+                ],
+                [
+                    'title' => 'Quản lý thương hiệu',
+                    'icon' => 'bx bx-category',
+                    'href' => route('admin.brand.index')
                 ]
             ]
         ]

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,24 @@ Route::prefix('cms-admin')->middleware(['auth', 'verified'])->name('admin.')->gr
 
     // Category
     Route::prefix('category')->controller(CategoryController::class)->name('category.')->group(function () {
+        // List
+        Route::get('/', 'index')->name('index');
+        Route::get('getList', 'getList')->name('getList');
+
+        // Create
+        Route::get('create', 'create')->name('create');
+        Route::post('store', 'store')->name('store');
+
+        // Update
+        Route::get('edit/{id}', 'edit')->name('edit');
+        Route::post('update/{id}', 'update')->name('update');
+
+        // Delete
+        Route::post('delete/{id}', 'delete')->name('delete');
+    });
+
+    // Brand
+    Route::prefix('brand')->controller(BrandController::class)->name('brand.')->group(function () {
         // List
         Route::get('/', 'index')->name('index');
         Route::get('getList', 'getList')->name('getList');

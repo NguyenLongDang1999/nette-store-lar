@@ -40,80 +40,80 @@
                     {{ html()->hidden('id', $row->id ?? NULL) }}
 
                     <div class="col-md-12">
-                        @includeIf('components.forms._text', [
-                            'label' => __('trans.category.title'),
-                            'name' => 'name',
-                            'value' => $row->name ?? NULL
-                        ])
+                        <x-forms._text
+                            name="name"
+                            :label="__('trans.category.title')"
+                            :value=" $row->name ?? NULL"
+                        />
                     </div>
 
                     <div class="col-md-6">
-                        @includeIf('components.forms._select', [
-                            'arrList' => $getCategoryList ?? [],
-                            'label' => __('trans.category.parent_id'),
-                            'name' => 'parent_id',
-                            'value' => $row->parent_id ?? NULL
-                        ])
+                        <x-forms._select
+                            name="parent_id"
+                            :arr-list="$getCategoryList ?? []"
+                            :label="__('trans.category.parent_id')"
+                            :value="$row->parent_id ?? NULL"
+                        />
                     </div>
 
                     <div class="col-md-6">
-                        @includeIf('components.forms._text', [
-                            'label' => __('trans.description'),
-                            'name' => 'description',
-                            'value' => $row->description ?? NULL
-                        ])
+                        <x-forms._text
+                            name="description"
+                            :label="__('trans.description')"
+                            :value=" $row->description ?? NULL"
+                        />
                     </div>
 
                     <div class="col-md-6">
-                        @includeIf('components.forms._select', [
-                            'arrList' => optionStatus() ?? [],
-                            'label' => __('trans.status'),
-                            'name' => 'status',
-                            'value' => $row->status ?? NULL
-                        ])
+                        <x-forms._select
+                            name="status"
+                            :arr-list="optionStatus() ?? []"
+                            :label="__('trans.status')"
+                            :value="$row->status ?? NULL"
+                        />
                     </div>
 
                     <div class="col-md-6">
-                        @includeIf('components.forms._select', [
-                            'arrList' => optionPopular() ?? [],
-                            'label' => __('trans.popular'),
-                            'name' => 'popular',
-                            'value' => $row->popular ?? NULL
-                        ])
+                        <x-forms._select
+                            name="popular"
+                            :arr-list="optionPopular() ?? []"
+                            :label="__('trans.popular')"
+                            :value="$row->popular ?? NULL"
+                        />
                     </div>
 
                     <div class="col-12">
                         <hr>
-                        @includeIf('components.forms._upload_once', [
-                            'path' => config('constants.PATH_CATEGORY'),
-                            'name' => 'image_uri',
-                            'value' => $row->image_uri ?? NULL
-                        ])
+                        <x-forms._upload_once
+                            name="image_uri"
+                            :path="config('constants.PATH_CATEGORY')"
+                            :value="$row->image_uri ?? NULL"
+                        />
                         <hr>
                     </div>
 
                     <div class="col-12">
-                        @includeIf('components.forms._textarea', [
-                            'label' => __('trans.seo.meta_title'),
-                            'name' => 'meta_title',
-                            'value' => $row->meta_title ?? NULL
-                        ])
+                        <x-forms._textarea
+                            name="meta_title"
+                            :label="__('trans.seo.meta_title')"
+                            :value=" $row->meta_title ?? NULL"
+                        />
                     </div>
 
                     <div class="col-12">
-                        @includeIf('components.forms._textarea', [
-                            'label' => __('trans.seo.meta_keyword'),
-                            'name' => 'meta_keyword',
-                            'value' => $row->meta_keyword ?? NULL
-                        ])
+                        <x-forms._textarea
+                            name="meta_keyword"
+                            :label="__('trans.seo.meta_keyword')"
+                            :value=" $row->meta_keyword ?? NULL"
+                        />
                     </div>
 
                     <div class="col-12">
-                        @includeIf('components.forms._textarea', [
-                            'label' => __('trans.seo.meta_description'),
-                            'name' => 'meta_description',
-                            'value' => $row->meta_description ?? NULL
-                        ])
+                        <x-forms._textarea
+                            name="meta_description"
+                            :label="__('trans.seo.meta_description')"
+                            :value=" $row->meta_description ?? NULL"
+                        />
                     </div>
 
                     <div class="col-12">
