@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,14 +24,17 @@ Route::prefix('auth')->controller(AuthenticatedSessionController::class)->group(
         Route::get('/', 'create')->name('login');
         Route::post('/', 'store');
     });
-
-    Route::prefix('logout')->middleware('auth')->group(function () {
-        Route::post('/', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-    });
 });
 
 // Backend
 Route::prefix('cms-admin')->middleware(['auth', 'verified'])->name('admin.')->group(function () {
+    // Authentication
+    Route::prefix('auth')->name('auth.')->group(function () {
+        Route::get('profile', [UserController::class, 'index'])->name('profile');
+        Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    });
+
+
     // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 

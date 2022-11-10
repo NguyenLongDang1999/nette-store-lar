@@ -88,8 +88,8 @@
                             <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                            {{ html()->form('POST', route('logout'))->open() }}
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            {{ html()->form('POST', route('admin.auth.logout'))->open() }}
+                            <a class="dropdown-item" href="{{ route('admin.auth.logout') }}"
                                onclick="event.preventDefault(); this.closest('form').submit();"
                             >
                                 <i class="bx bx-power-off me-2"></i>

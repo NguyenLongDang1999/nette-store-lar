@@ -16,5 +16,6 @@ return [
     // Path Image
     'PATH_CATEGORY' => 'storage/category/',
     'PATH_BRAND' => 'storage/brand/',
+    'PATH_ADMIN' => 'storage/admin/',
     'PATH_DEFAULT' => 'assets/images/default.webp'
 ];

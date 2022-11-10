@@ -83,21 +83,6 @@ class CategoryRequest extends FormRequest
         ];
     }
 
-    /**
-     * Configure the validator instance.
-     *
-     * @param Validator $validator
-     * @return Application|RedirectResponse|Redirector|void
-     */
-    public function withValidator(\Illuminate\Validation\Validator $validator)
-    {
-        if ($validator->fails()) {
-            return redirect(route('admin.category.create'))
-                ->withErrors($validator)
-                ->withInput();
-        }
-    }
-
     protected function prepareForValidation()
     {
         $this->merge([

@@ -54,6 +54,9 @@ return [
         'title' => 'Tiêu đề thương hiệu',
         'manager' => 'Quản lý thương hiệu',
     ],
+    'profile' => [
+        'title' => 'Thông tin chi tiết'
+    ],
     'validation' => [
         'required' => ':attribute không được bỏ trống.',
         'unique' => ':attribute đã tồn tại trong hệ thống.',
@@ -65,6 +68,8 @@ return [
         ],
         'mimes' => ':attribute phải là định dạng: :values.',
         'image' => ':attribute phải là một hình ảnh.',
+        'email' => ':attribute không đúng định dạng',
+        'string' => ':attribute phải là ký tự chữ.',
     ],
     'message' => [
         'success' => 'Dữ liệu đã được lưu thành công!',

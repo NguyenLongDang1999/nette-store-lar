@@ -74,7 +74,12 @@ function adminMenuList(): array
                 ],
                 [
                     'title' => 'Quản lý thương hiệu',
-                    'icon' => 'bx bx-category',
+                    'icon' => 'bx bx-store',
+                    'href' => route('admin.brand.index')
+                ],
+                [
+                    'title' => 'Quản lý sản phẩm',
+                    'icon' => 'bx bxl-product-hunt',
                     'href' => route('admin.brand.index')
                 ]
             ]
